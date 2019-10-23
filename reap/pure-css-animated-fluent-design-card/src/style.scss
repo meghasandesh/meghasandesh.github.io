@@ -1,0 +1,300 @@
+// Portfolio Profile Card
+// Pen by Jay Kariesch
+
+// Pen Thought: 
+// - organize rules relationally and by separation of behaviors.
+// - use BEM
+// - "type" prefix class names (call a spade a spade) with ITCSS conventions
+// - get more coffee :)
+
+// fetch nested key/vals from our config
+@function map-fetch($map, $keys...) {
+    @each $key in $keys {
+        $map: map-get($map, $key);
+    }
+    @return $map;
+}
+
+$shadow-spread: 66;
+// our config. manages properties. 
+// useful when converting to a mixin and otherwise.
+$config: (
+  bg-image: 'https://lorempixel.com/1200/1200/nature/3',
+  z-index: (
+    blur: 0,
+    body: 1,
+    header: 2,
+    arrow: 2
+  ),
+  colors: (
+    hero-bg: rgba(white, 0.7),
+    body-bg: rgba(#f7f7f7, 0.6),
+    arrow-bg: darken(white, 15%),
+    text: #303030
+  ),
+  shadows: (
+    card: 8px 10px #{$shadow-spread}px 1px rgba(0, 0, 0, 0.4)
+  ),
+  small-card: (
+    left-distance: 50,
+    min-scale: 1,
+    min-opacity: 0.6,
+    shadow: 2px 2px 2px 1px rgba(0, 0, 0, 0.4)
+  )
+);
+
+// our sass
+.component\@profile-card {
+  
+  display: flex;
+  align-items: stretch;
+  flex-direction: column;
+  justify-content: space-between;
+  
+  box-shadow: map-fetch($config, shadows, card), -1px -1px 0px 1px white, -1px -1px 0px 1px white, inset 3px 0px 0px  white;
+  
+  position: relative;
+  
+  height: 400px;
+  width: 100%;
+  
+  will-change: transform, top, left, opacity, position, box-shadow;
+  z-index: 1;
+  
+  @media(min-width: 480px) {
+    width: 460px;
+  }
+  
+  &__blur {
+    background: url(map-get($config, bg-image)) no-repeat center center fixed;
+    background-size: cover;
+    
+    filter: blur(13px);
+    
+    position: absolute;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    
+    z-index: map-fetch($config, z-index, blur);
+  }
+  
+  &__header {
+    background: map-fetch($config, colors, hero-bg);
+    
+    width: 90px;
+    
+    position: absolute;
+    
+    left: 0;
+    top: 0;
+    bottom: 0;
+    
+    z-index: map-fetch($config, z-index, header);
+  }
+  
+  &__body {
+    background: map-fetch($config, colors, body-bg);
+    
+    display: flex;
+    flex-grow: 1;
+    flex-shrink: 0;
+    flex-direction: column;
+    
+    padding: 0 24px 24px 114px;
+    
+    z-index: map-fetch($config, z-index, body);
+  }
+  
+  &__title {
+    letter-spacing: 2px;
+    margin-bottom: 36px;
+  }
+  
+  &__link {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    
+    position: absolute;
+    top: 0;
+    left: 0;
+    
+    height: 60px;
+    width: 100%;
+    
+    transition: ease 0.2s background;
+    will-change: background;
+    
+    z-index: map-fetch($config, z-index, arrow);
+    
+    &:hover {
+      background: darken(white, 18%);
+    }
+  }
+  
+  &__img {
+    margin: 0 auto;
+  }
+}
+
+.object\@sticker {
+  position: relative;
+  &__item {
+    color: map-fetch($config, colors, text);
+    font-size: 36px;
+    
+    display: flex;
+    justify-content: center;
+    
+    background-clip: text;
+  }
+}
+
+.object\@media-object {
+  margin-top: 24px;
+ 
+  display: flex;
+  align-items: flex-start;
+  
+  &:first-of-type {
+    margin-top: 0;
+  }
+  &__img {
+    margin-right: 1em; 
+  }
+  &__body {
+    flex: 1;
+  }
+  &__heading {
+    margin: 0;
+  }
+  &__subheading {
+    color: #666;
+    font-size: 12px;
+    text-transform: uppercase;
+    
+    margin-top: 0;
+    margin-bottom: 6px;
+  }
+  &__text {
+    margin: 0;
+    font-weight: 200;
+  }
+}
+
+.helper\@margin-top--none {
+  margin-top: 0;
+}
+
+$triggers: (
+  (#component\@profile-card-radio-2, #component\@profile-card-2, #component\@profile-card-1),
+  (#component\@profile-card-radio-1, #component\@profile-card-1, #component\@profile-card-2)
+);
+
+@each $radio, $scard, $pcard in $triggers {
+  
+  #{$radio} {
+    transition: ease all 1s;
+    
+    &:checked {
+      ~ #{$scard} {
+        
+        position: absolute;
+
+        left: #{map-fetch($config, small-card, left-distance)}px;
+        top: 24px;
+
+        opacity: map-fetch($config, small-card, min-opacity);
+        
+        transition: ease top 1s, ease opacity 1s;
+        transition-delay: 2s;
+        transform: scale(map-fetch($config, small-card, min-scale));
+        backface-visibility: hidden;
+        perspective: 1000;
+
+
+        box-shadow: map-fetch($config, small-card, shadow);
+
+        z-index: 0;
+
+        animation: primary 0.5s ease;
+      }
+      ~ #{$pcard} {
+        top: 0;
+
+      }
+    }
+  }
+}
+
+@mixin rotation($left: null, $min-scale: 0.4, $coeff: 6) {
+  $scale: 1;
+  $opacity: 1;
+  $last: 0;
+  $min-opacity: map-fetch($config, small-card, min-opacity);
+  
+  @for $i from 0 through 100 {
+    $step: $i;
+    $decrementer: (100 - $i)/100 * $shadow-spread;
+    
+    #{$step}% {
+      position: absolute;
+      
+      @if $i % 24 == 0 {
+        top: $i;
+      }
+
+      @if $step <= 50 {
+        
+        left: #{$i * $coeff}px;
+        z-index: 2;
+        $last: $i * $coeff;
+        
+      } @else {
+
+        left: if($last <= map-fetch($config, small-card, left-distance), 
+              map-fetch($config, small-card, left-distance), 
+              #{$last}px);
+        
+        transform: scale($scale); 
+        z-index: 0;
+       
+      }
+    }
+    
+    $last: $last - 10;
+    
+    $scale:  if($scale > $min-scale, 
+             $scale - (0.1 / (10 - $min-scale)), 
+             $min-scale);
+    
+  } 
+}
+
+@keyframes primary {
+  @include rotation(true, map-fetch($config, small-card, min-scale), 9.5);
+}
+
+.is-hidden {
+  opacity: 0;
+  visibility: 0;
+  position: absolute;
+}
+
+.container {
+  width: 500px;
+  position: relative;
+}
+
+body {
+  background: url(map-get($config, bg-image)) no-repeat center center fixed;
+  background-size: cover;
+  
+  display: flex;
+  justify-content: center;
+  
+  color: map-fetch($config, colors, text);
+  font-family: -apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Oxygen-Sans,Ubuntu,Cantarell,"Helvetica Neue",sans-serif;
+}

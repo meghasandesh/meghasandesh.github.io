@@ -1,0 +1,335 @@
+<!doctype html>
+<html>
+<head>
+	<link rel="stylesheet" type="text/css" href="stylesheets/style.css">
+	<link href="https://fonts.googleapis.com/css?family=Darker+Grotesque|Pavanam|Quicksand&display=swap" rel="stylesheet">
+	<link rel="stylesheet" type="text/css" href="css/bootstrap-grid.css">
+	<link rel="stylesheet" type="text/css" href="css/cards.css">
+	<link rel="stylesheet" type="text/css" href="js/select2/select2.css">
+	<title>UX Plan Generator - That UX Designer</title>
+	<!-- Hotjar Tracking Code for thatuxdesigner.com -->
+	<script>
+	    (function(h,o,t,j,a,r){
+	        h.hj=h.hj||function(){(h.hj.q=h.hj.q||[]).push(arguments)};
+	        h._hjSettings={hjid:1481928,hjsv:6};
+	        a=o.getElementsByTagName('head')[0];
+	        r=o.createElement('script');r.async=1;
+	        r.src=t+h._hjSettings.hjid+j+h._hjSettings.hjsv;
+	        a.appendChild(r);
+	    })(window,document,'https://static.hotjar.com/c/hotjar-','.js?sv=');
+	</script>
+</head>
+<body>
+	<div class="container">
+		<div class="row">
+			<input type="text" name="" class="js-title title" placeholder="Enter a Title for Your Project">
+		</div>
+		<div class="row">
+			<header>
+				<input type="text" class="search-bar js-search" name="" placeholder="Search">
+				<select class="js-category">
+					<option selected disabled="">Select Category</option>
+					<option value="research">Research</option>
+					<option value="prototyping">Prototyping</option>
+					<option value="testing">Testing</option>
+				</select>
+				<!--button>Switch to Printable View</button-->
+				<button class="js-reset-plan">Reset Plan</button>
+				<button class="js-view-all">View All</button>
+				<button class="js-view-plan">View My Plan</button>
+				<!--button class="js-print-page">
+					<span>Print</span>
+					<img src="img/printer.svg">
+				</button-->
+				
+			</header>
+		</div>
+	</div>
+	<div class="container js-ux-list">
+	  <div class="row">
+		<section class="ux-activity col-sm liquid req">	
+			<h3>Requirements Gathering</h3>
+			<button class="js-add-btn add-btn">
+				<img src="img/plus.svg" class="plus">
+				<img src="img/success.svg" class="check">
+			</button>
+			<div class="type">Research</div>
+			<!--button class="liquid">View Detail</button-->
+			<p></p>
+		</section>	
+
+		<section class="ux-activity col-sm liquid interview">
+			<h3>Interviews</h3>
+			<button class="js-add-btn add-btn">
+				<img src="img/plus.svg" class="plus">
+				<img src="img/success.svg" class="check">
+			</button>
+			<div class="type">Research</div>
+			<!--button class="liquid">View Detail</button-->
+			<div class="detail">
+				
+				<p>Time Guide: 1/2 a work day per interview</p>
+			</div>
+		</section>
+
+		<section class="ux-activity col-sm liquid focus">	
+			<h3>Focus Groups</h3>
+			<button class="js-add-btn add-btn">
+				<img src="img/plus.svg" class="plus">
+				<img src="img/success.svg" class="check">
+			</button>
+			<div class="type">Research</div>
+			<!--button class="liquid">View Detail</button-->
+			<div class="detail">
+				
+				<p>Time Guide: 2 work days per focus group</p>
+			</div>
+		</section>
+	</div>
+	<div class="row">
+		<section class="ux-activity col-sm liquid survey">	
+			<h3>Surveys</h3>
+			<button class="js-add-btn add-btn">
+				<img src="img/plus.svg" class="plus">
+				<img src="img/success.svg" class="check">
+			</button>
+			<div class="type">Research</div>
+			<!--button class="liquid">View Detail</button-->
+			<div class="detail">
+				
+				<p>Time Guide: 2 work days for planning and post-morterm. Give about 10 working days for execution.</p>
+			</div>
+		</section>
+
+		<section class="ux-activity col-sm liquid audit">	
+			<h3>Competitive Audit</h3>
+			<button class="js-add-btn add-btn"><img src="img/plus.svg" class="plus">
+				<img src="img/success.svg" class="check"></button>
+			<div class="type">Research</div>
+			<!--button class="liquid">View Detail</button-->
+			<div class="detail">
+				
+				<p>Time Guide: 2 work days for planning and post-morterm. Give about 10 working days</p>
+		</section>
+
+		<section class="ux-activity col-sm liquid heuristic">	
+			<h3>Expert Evaluation</h3>
+			<button class="js-add-btn add-btn"><img src="img/plus.svg" class="plus">
+				<img src="img/success.svg" class="check"></button>
+			<div class="type">Research</div>
+			<!--button class="liquid">View Detail</button-->
+			<div class="detail">
+				
+				<p>Time Guide: 2 work days for planning and post-morterm. Give about 10 working days</p>
+		</section>
+	</div>
+	<div class="row">
+		<section class="ux-activity col-sm liquid low-fi">	
+			<h3>Wireframing</h3>
+			<button class="js-add-btn add-btn"><img src="img/plus.svg" class="plus">
+				<img src="img/success.svg" class="check">
+			</button>
+			<div class="type">Prototyping</div>
+			<!--button class="liquid">View Detail</button-->
+			<div class="detail">
+				
+				<p>Time Guide: 2 work days for planning and post-morterm. Give about 10 working days</p>
+		</section>
+
+		<section class="ux-activity col-sm liquid hi-fi">	
+			<h3>Mockups</h3>
+			<button class="js-add-btn add-btn"><img src="img/plus.svg" class="plus">
+				<img src="img/success.svg" class="check"></button>
+			<div class="type">Prototyping</div>
+			<!--button class="liquid">View Detail</button-->
+			<div class="detail">
+				
+				<p>Time Guide: 2 work days for planning and post-morterm. Give about 10 working days</p>
+		</section>
+
+		<section class="ux-activity col-sm liquid abtest">	
+			<h3>A/B Testing</h3>
+			<button class="js-add-btn add-btn"><img src="img/plus.svg" class="plus">
+				<img src="img/success.svg" class="check"></button>
+			<div class="type">Testing</div>
+			<!--button class="liquid">View Detail</button-->
+			<div class="detail">
+				
+				<p>Time Guide: 2 work days for planning and post-morterm. Give about 10 working days</p>
+		</section>
+	</div>
+	<div class="row">
+		<section class="ux-activity col-sm liquid anthropology">	
+			<h3>Fly on the Wall / Anthropological Study</h3>
+			<button class="js-add-btn add-btn"><img src="img/plus.svg" class="plus">
+				<img src="img/success.svg" class="check"></button>
+			<div class="type">Research</div>
+			<!--button class="liquid">View Detail</button-->
+			<div class="detail">
+				
+				<p>Time Guide: 2 work days for planning and post-morterm. Give about 10 working days</p>
+		</section>
+		<section class="ux-activity col-sm liquid analytics">	
+			<h3>Analytics</h3>
+			<button class="js-add-btn add-btn"><img src="img/plus.svg" class="plus">
+				<img src="img/success.svg" class="check"></button>
+			<div class="type">Research/Testing</div>
+			<!--button class="liquid">View Detail</button-->
+			<div class="detail">
+				
+				<p>Time Guide: 2 work days for planning and post-morterm. Give about 10 working days</p>
+		</section>
+		<section class="ux-activity col-sm liquid card-sort">	
+			<h3>Card Sorting</h3>
+			<button class="js-add-btn add-btn"><img src="img/plus.svg" class="plus">
+				<img src="img/success.svg" class="check"></button>
+			<div class="type">Research</div>
+			<!--button class="liquid">View Detail</button-->
+			<div class="detail">
+				
+				<p>Time Guide: 2 work days for planning and post-morterm. Give about 10 working days</p>
+		</section>
+	</div>
+	<div class="row">
+		<section class="ux-activity col-sm liquid interaction">	
+			<h3>Interaction Design</h3>
+			<button class="js-add-btn add-btn"><img src="img/plus.svg" class="plus">
+				<img src="img/success.svg" class="check"></button>
+			<div class="type">Design</div>
+			<!--button class="liquid">View Detail</button-->
+			<div class="detail">
+				
+				<p>Time Guide: 2 work days for planning and post-morterm. Give about 10 working days</p>
+		</section>
+		<section class="ux-activity col-sm liquid graphic">	
+			<h3>Visual and Graphic Design</h3>
+			<button class="js-add-btn add-btn"><img src="img/plus.svg" class="plus">
+				<img src="img/success.svg" class="check"></button>
+			<div class="type">Design</div>
+			<!--button class="liquid">View Detail</button-->
+			<div class="detail">
+				
+				<p>Time Guide: 2 work days for planning and post-morterm. Give about 10 working days</p>
+		</section>
+		<section class="ux-activity col-sm liquid design-system">	
+			<h3>Design System</h3>
+			<button class="js-add-btn add-btn"><img src="img/plus.svg" class="plus">
+				<img src="img/success.svg" class="check"></button>
+			<div class="type">Design</div>
+			<!--button class="liquid">View Detail</button-->
+			<div class="detail">
+				
+				<p>Time Guide: 2 work days for planning and post-morterm. Give about 10 working days</p>
+		</section>
+	</div>
+	<div class="row">
+		<section class="ux-activity col-sm liquid info-arch">	
+			<h3>Information Architecture</h3>
+			<button class="js-add-btn add-btn"><img src="img/plus.svg" class="plus">
+				<img src="img/success.svg" class="check"></button>
+			<div class="type">Design</div>
+			<!--button class="liquid">View Detail</button-->
+			<div class="detail">
+				
+				<p>Time Guide: 2 work days for planning and post-morterm. Give about 10 working days</p>
+		</section>
+		<section class="ux-activity col-sm liquid eye-track">	
+			<h3>Eye Tracking Studies</h3>
+			<button class="js-add-btn add-btn"><img src="img/plus.svg" class="plus">
+				<img src="img/success.svg" class="check"></button>
+			<div class="type">Testing</div>
+			<!--button class="liquid">View Detail</button-->
+			<div class="detail">
+				
+				<p>Time Guide: 2 work days for planning and post-morterm. Give about 10 working days</p>
+		</section>
+		<section class="ux-activity col-sm liquid record">	
+			<h3>Session Recording</h3>
+			<button class="js-add-btn add-btn"><img src="img/plus.svg" class="plus">
+				<img src="img/success.svg" class="check"></button>
+			<div class="type">Testing</div>
+			<!--button class="liquid">View Detail</button-->
+			<div class="detail">
+				
+				<p>Time Guide: 2 work days for planning and post-morterm. Give about 10 working days</p>
+		</section>
+	</div>
+	<div class="row">
+		<section class="ux-activity col-sm liquid storyboard">	
+			<h3>Storyboarding</h3>
+			<button class="js-add-btn add-btn"><img src="img/plus.svg" class="plus">
+				<img src="img/success.svg" class="check"></button>
+			<div class="type">Design</div>
+			<!--button class="liquid">View Detail</button-->
+			<div class="detail">
+				
+				<p>Time Guide: 2 work days for planning and post-morterm. Give about 10 working days</p>
+		</section>
+		<section class="ux-activity col-sm liquid sketch">	
+			<h3>Sketching</h3>
+			<button class="js-add-btn add-btn"><img src="img/plus.svg" class="plus">
+				<img src="img/success.svg" class="check"></button>
+			<div class="type">Design</div>
+			<!--button class="liquid">View Detail</button-->
+			<div class="detail">
+				
+				<p>Time Guide: 2 work days for planning and post-morterm. Give about 10 working days</p>
+		</section>
+		<section class="ux-activity col-sm liquid paper">	
+			<h3>Paper Prototypes</h3>
+			<button class="js-add-btn add-btn"><img src="img/plus.svg" class="plus">
+				<img src="img/success.svg" class="check"></button>
+			<div class="type">Design</div>
+			<!--button class="liquid">View Detail</button-->
+			<div class="detail">
+				
+				<p>Time Guide: 2 work days for planning and post-morterm. Give about 10 working days</p>
+		</section>
+	</div>
+	<div class="container">
+		<section class="ux-activity col-sm liquid interactive">	
+			<h3>Interactive Prototyping</h3>
+			<button class="js-add-btn add-btn"><img src="img/plus.svg" class="plus">
+				<img src="img/success.svg" class="check"></button>
+			<div class="type">Design</div>
+			<!--button class="liquid">View Detail</button-->
+			<div class="detail">
+				
+				<p>Time Guide: 2 work days for planning and post-morterm. Give about 10 working days</p>
+		</section>
+	</div>
+	<div id="cover" class="cover"></div>
+
+	<div id="open-content" class="open-content">
+	  <a href="#" id="close-content" class="close-content"><span class="x-1"></span><span class="x-2"></span></a>
+	  <!--img id="open-content-image" src="" /-->
+	  <div class="text" id="open-content-text">
+	  </div>
+	</div>
+	<footer>
+		<div class="container">
+			<div class="row">
+				<div>Created by <a href="thatuxdesigner.com" target="_blank">That UX Designer</a></div>
+			</div>
+			<div class="row">
+				<div>Icons made by <a href="https://www.flaticon.com/authors/freepik" title="Freepik">Freepik</a> from <a href="https://www.flaticon.com/"     title="Flaticon">www.flaticon.com</a> messages.attribution.is_licensed_by <a href="http://creativecommons.org/licenses/by/3.0/"     title="Creative Commons BY 3.0" target="_blank">CC 3.0 BY</a></div>
+			</div>
+			<div class="row">
+			<a href="https://github.com/nobleclem/jQuery-MultiSelect" target="_blank">jQuery-MultiSelect</a>
+			&nbsp;&nbsp;&nbsp;&nbsp;
+			<a href="https://github.com/marcuswestin/store.js" target="_blank">store.js</a>
+			&nbsp;&nbsp;&nbsp;&nbsp;
+			<a href="https://www.freepik.com/">Images by Freepik - www.freepik.com</a>
+			</div>
+		</div>
+		</div>
+		
+	</footer>
+	<script type="text/javascript" src="js/store.everything.min.js"></script>
+	<!--script type="text/javascript" src="js/cards.js"></script-->
+	<script type="text/javascript" src="js/store.modern.min.js"></script>
+	<script type="text/javascript" src="js/jquery-3.2.1.min.js"></script>
+	<script type="text/javascript" src="js/select2/select2.js"></script>
+	<script type="text/javascript" src="js/uxplangen.js"></script>
+</body>
+</html>
